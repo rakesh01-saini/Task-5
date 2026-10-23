@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080914">
+  <meta name="description" content="NEXUS ARCADE — six neon arcade games built by Rakesh Saini.">
+  <title>NEXUS ARCADE — Play Beyond Limits</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app" id="dashboard">
+    <header class="topbar">
+      <a class="brand" href="#" id="homeBrand" aria-label="NEXUS ARCADE home">
+        <span class="brand-icon">✦</span>
+        <span>NEXUS ARCADE<small>PLAY BEYOND LIMITS</small></span>
+      </a>
+      
+<div class="top-actions">
+  <span class="pill">RANK <strong id="topLevel">01</strong></span>
+  <span class="pill">XP <strong id="topXP">0</strong></span>
+
+  <button class="icon-btn" id="themeToggle"
+    type="button" aria-label="Switch to light theme"
+    title="Switch theme">☀</button>
+
+  <button class="icon-btn" id="soundToggle"
+    type="button" aria-label="Toggle sound"
+    title="Toggle sound">♫</button>
+</div>
+
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">✦ YOUR NEXT OBSESSION</div>
+          <h1>ENTER THE<br><span>ARCADE.</span></h1>
+          <p>Six games. One universe. Challenge your reflexes, break records, and build your legacy in the neon dimension.</p>
+          <a class="primary-link" href="#gamesSection">EXPLORE GAMES <span>↘</span></a>
+        </div>
+        <div class="hero-art" aria-label="Neon arcade artwork">
+          <div class="orbit"></div><div class="orbit two"></div>
+          <div class="core">✦</div>
+          <div class="art-label">NEXUS SYSTEMS ONLINE // 06 GAMES</div>
+        </div>
+      </section>
+
+      <section class="stats" aria-label="Player statistics">
+        <article class="stat"><div class="stat-label">TOTAL XP</div><div class="stat-value" id="statXP">0 <em>XP</em></div></article>
+        <article class="stat"><div class="stat-label">GAMES PLAYED</div><div class="stat-value" id="statPlayed">0</div></article>
+        <article class="stat"><div class="stat-label">BEST SCORE</div><div class="stat-value" id="statBest">0</div></article>
+        <article class="stat"><div class="stat-label">ACHIEVEMENTS</div><div class="stat-value" id="statAchievements">0 <em>/ 6</em></div></article>
+      </section>
+
+      <section id="gamesSection">
+        <div class="section-head">
+          <div><div class="eyebrow">THE COLLECTION</div><h2>Choose your game</h2><p>Find your next challenge and jump straight into the action.</p></div>
+          <span class="collection-count" id="gameCount">06 GAMES</span>
+        </div>
+
+        <div class="search-row">
+          <label class="search-box"><span>⌕</span><input id="gameSearch" type="search" placeholder="Search games..." autocomplete="off" aria-label="Search games"><button id="clearSearch" type="button" aria-label="Clear search" hidden>×</button></label>
+          <label class="sort-box"><span>Sort</span><select id="gameSort" aria-label="Sort games"><option value="featured">Featured</option><option value="az">A–Z</option><option value="recent">Recently Played</option><option value="best">Best Score</option></select></label>
+        </div>
+
+        <div class="filters" id="filters" aria-label="Game categories">
+          <button class="filter active" data-filter="All">All Games</button>
+          <button class="filter" data-filter="Action">Action</button>
+          <button class="filter" data-filter="Arcade">Arcade</button>
+          <button class="filter" data-filter="Puzzle">Puzzle</button>
+        </div>
+        <div class="games-grid" id="gamesGrid"></div>
+        <div class="empty-state" id="emptyState" hidden><span>⌕</span><h3>No games found</h3><p>Try a different search or category.</p><button class="secondary-btn" id="resetFilters">Reset filters</button></div>
+      </section>
+
+      <section>
+        <div class="section-head"><div><div class="eyebrow">YOUR JOURNEY</div><h2>Achievements</h2><p>Every session brings you closer to arcade greatness.</p></div></div>
+        <div class="achievements" id="achievementGrid"></div>
+      </section>
+
+      <<section class="developer" id="developer">
+  <div class="developer-mark">
+    <span>Rakesh Saini</span>
+  </div>
+
+  <div class="developer-info">
+    <span class="developer-label">THE CREATOR BEHIND NEXUS ARCADE</span>
+    <h2 class="developer-name">Rakesh Saini</h2>
+    <p class="developer-subtitle">Designed &amp; Developed by</p>
+
+    <div class="developer-links">
+      <a href="https://github.com/rakesh01-saini/" id="githubLink" target="_blank"
+         rel="noopener noreferrer">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/rakesh-saini-9a9b872b5/" id="linkedinLink" target="_blank"
+         rel="noopener noreferrer">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+      <footer class="footer">Designed &amp; Developed by <strong>Rakesh Saini</strong> <span>·</span> NEXUS ARCADE <span>·</span> Your scores stay on this device.</footer>
+    </main>
+  </div>
+
+  <section class="game-screen" id="gameScreen" aria-label="Active game" aria-hidden="true">
+    <header class="game-top">
+      <div class="game-top-left">
+        <button class="back-btn" id="backBtn" title="Return to hub">← <span>ARCADE</span></button>
+        <div class="active-game-info"><div class="active-game-name" id="activeGameName">Game</div><div class="active-game-meta" id="activeGameMeta">Controls</div></div>
+      </div>
+      <div class="game-top-right">
+        <div class="live-stat"><span>SCORE</span><strong id="liveScore">0</strong></div>
+        <div class="live-stat"><span>LEVEL</span><strong id="liveLevel">1</strong></div>
+        <div class="live-stat lives-stat" id="livesStat"><span>LIVES</span><strong id="liveLives">3</strong></div>
+        <button class="control-btn" id="pauseBtn" title="Pause or resume">Ⅱ <span>Pause</span></button>
+        <button class="control-btn" id="restartBtn" title="Restart game">↻</button>
+        <button class="control-btn close-btn" id="closeBtn" title="Close game">×</button>
+      </div>
+    </header>
+
+    <div class="stage">
+      <div class="canvas-wrap" id="canvasWrap">
+        <canvas id="gameCanvas" width="960" height="540" tabindex="0" aria-label="Game playfield"></canvas>
+        <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+          <div class="overlay-card">
+            <div class="eyebrow" id="overlayEyebrow">NEXUS ARCADE</div>
+            <h2 id="overlayTitle">Game Paused</h2>
+            <p id="overlayText">Your progress is waiting.</p>
+            <div class="overlay-actions" id="overlayActions">
+              <button class="play-btn" id="overlayMain">RESUME GAME</button>
+              <button class="secondary-btn" id="overlayRestart">↻ Restart</button>
+              <button class="secondary-btn" id="overlayBack">← Hub</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="game-bottom">
+      <div class="hud-row" id="gameHint">Ready to play</div>
+      <div class="mobile-controls" id="mobileControls" aria-label="Touch controls"></div>
+    </div>
+  </section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const toggle = document.getElementById("themeToggle");
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  const storageKey = "nexusArcadeTheme";
+
+  function applyTheme(theme) {
+    const isLight = theme === "light";
+
+    root.dataset.theme = isLight ? "light" : "dark";
+
+    toggle.textContent = isLight ? "☾" : "☀";
+    toggle.title = isLight ? "Switch to dark theme" : "Switch to light theme";
+    toggle.setAttribute(
+      "aria-label",
+      isLight ? "Switch to dark theme" : "Switch to light theme"
+    );
+
+    if (themeColor) {
+      themeColor.content = isLight ? "#f3f5fc" : "#080914";
+    }
+
+    try {
+      localStorage.setItem(storageKey, isLight ? "light" : "dark");
+    } catch (error) {
+      // Theme still works for this page if storage is unavailable.
+    }
+  }
+
+  let savedTheme = "dark";
+
+  try {
+    const stored = localStorage.getItem(storageKey);
+    if (stored === "light" || stored === "dark") {
+      savedTheme = stored;
+    }
+  } catch (error) {
+    // Use dark theme if storage is unavailable.
+  }
+
+  applyTheme(savedTheme);
+
+  toggle.addEventListener("click", () => {
+    const nextTheme =
+      root.dataset.theme === "light" ? "dark" : "light";
+
+    applyTheme(nextTheme);
+  });
+})();
+</script>
+</body>
+</html>
+
+
+</body>
+</html>
